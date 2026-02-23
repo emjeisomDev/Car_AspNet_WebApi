@@ -1,0 +1,6 @@
+@CarTest_HostAddress = http://localhost:5126
+
+GET {{CarTest_HostAddress}}/
+Accept: application/json
+
+###
