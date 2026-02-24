@@ -5,8 +5,12 @@ namespace CarTest.Entity
 {
     public class Car
     {
-        public int Id { get; set; }
+        [Key, ForeignKey("Vehicle")]
+        public int Vehicle_id { get; set; }
+
+        [Required]
         public int DoorsQuantity { get; set; }
+
         public Vehicle Vehicle { get; set; }
     }
 }

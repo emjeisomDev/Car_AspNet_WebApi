@@ -5,8 +5,12 @@ namespace CarTest.Entity
 {
     public class Motorcycle
     {
-        public int Id { get; set; }
-        public bool HasEletricStart { get; set; }
+        [Key, ForeignKey("Vehicle")]
+        public int Vehicle_id { get; set; }
+
+        [Required]
+        public bool HasElectricStart { get; set; }
+
         public Vehicle Vehicle { get; set; }
     }
 }
