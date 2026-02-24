@@ -42,8 +42,10 @@ namespace CarTest.Context
                       .HasMaxLength(20);
 
                 entity.Property(v => v.VehicleType)
+                      .HasConversion<string>()
                       .IsRequired()
                       .HasMaxLength(20);
+                      
             });
 
             // ===============================
