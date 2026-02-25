@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarTest.Context
 {
-    public class CarContext : DbContext
+    public class VehicleContext : DbContext
     {
 
         public DbSet<Vehicle> Vehicles { get; set; }
@@ -11,7 +11,7 @@ namespace CarTest.Context
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Truck> Trucks { get; set; }
                 
-        public CarContext(DbContextOptions<CarContext> options) : base(options) { }
+        public VehicleContext(DbContextOptions<VehicleContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

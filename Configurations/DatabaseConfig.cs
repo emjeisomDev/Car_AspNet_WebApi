@@ -14,7 +14,7 @@ namespace CarTest.Configurations
                 throw new ArgumentNullException("Connection string 'MSSQLServerSQLConnectionString' not found.");
             }
 
-            services.AddDbContext<CarContext>(options =>
+            services.AddDbContext<VehicleContext>(options =>
                 options.UseSqlServer(connectionString));
             return services;
         }
