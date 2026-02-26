@@ -1,4 +1,6 @@
 using CarTest.Configurations;
+using CarTest.Services;
+using CarTest.Services.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
+
+builder.Services.AddScoped<ICarServices, CarServicesImpl>();
 
 var app = builder.Build();
 

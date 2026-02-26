@@ -1,6 +1,6 @@
 ﻿namespace CarTest.Mappings
 {
-    public record CreateCarDto
+    public record CarDto
     {
         public string Manufacturer { get; init; }
         public string Model { get; init; }
