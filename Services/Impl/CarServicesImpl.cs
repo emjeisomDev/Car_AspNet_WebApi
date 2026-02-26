@@ -14,7 +14,7 @@ namespace CarTest.Services.Impl
         public CarServicesImpl(VehicleContext context) => _context = context;
 
 
-        public CarResponseDto GetById(int id)
+        public TruckResponseDto GetById(int id)
         {
             var car = _context.Cars
                 .AsNoTracking()
@@ -24,7 +24,7 @@ namespace CarTest.Services.Impl
             if (car == null)
                 throw new KeyNotFoundException("Car not found.");
 
-            return new CarResponseDto(
+            return new TruckResponseDto(
                 car.Vehicle.Id,
                 car.Vehicle.Manufacturer,
                 car.Vehicle.Model,
@@ -36,10 +36,10 @@ namespace CarTest.Services.Impl
         }
 
 
-        public IEnumerable<CarResponseDto> GetAll()
+        public IEnumerable<TruckResponseDto> GetAll()
             => _context.Cars
                 .AsNoTracking()
-                .Select(c => new CarResponseDto(
+                .Select(c => new TruckResponseDto(
                     c.Vehicle.Id,
                     c.Vehicle.Manufacturer,
                     c.Vehicle.Model,
@@ -50,7 +50,7 @@ namespace CarTest.Services.Impl
                 ))
                 .ToList();
 
-        public CarResponseDto Create(CarDto dto)
+        public TruckResponseDto Create(CarDto dto)
         {
             if (dto.Year < 1900)
                 throw new ArgumentException("Invalid year");
@@ -68,7 +68,7 @@ namespace CarTest.Services.Impl
             _context.Vehicles.Add(car);
             _context.SaveChanges();
 
-            return new CarResponseDto
+            return new TruckResponseDto
                 (
                     car.Id,
                     car.Manufacturer,
@@ -80,7 +80,7 @@ namespace CarTest.Services.Impl
                  );
         }
 
-        public CarResponseDto Update(int id, CarDto dto)
+        public TruckResponseDto Update(int id, CarDto dto)
         {
 
             if (dto.Year < 1900)
@@ -101,7 +101,7 @@ namespace CarTest.Services.Impl
 
             _context.SaveChanges();
 
-            return new CarResponseDto(
+            return new TruckResponseDto(
                 car.Vehicle.Id,
                 car.Vehicle.Manufacturer,
                 car.Vehicle.Model,
